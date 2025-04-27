@@ -1,0 +1,191 @@
+:root {
+    --clr-deep:  #001a3d;
+    --clr-main:  #002147;
+    --clr-light: #f6f8fa;
+    --clr-white: #ffffff;
+    --radius:   16px;
+    --shadow:   0 6px 18px rgba(0,0,0,0.1);
+    --max-w:    1000px;
+    --space:    1.5rem;
+    --font:     'Helvetica Neue', Arial, sans-serif;
+  }
+  
+  /* —— RESET & BASE —— */
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: var(--font);
+    color: var(--clr-deep);
+    background: var(--clr-light) url('../images/bg-pattern.png') center/cover fixed;
+    line-height: 1.6;
+  }
+  .wrapper {
+    width: 90%;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  
+  /* —— HERO “BUBBLE” —— */
+  .hero {
+    position: relative;
+    height: 60vh; min-height: 360px;
+    background: url('../images/hero.jpg') center/cover no-repeat;
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: var(--space) auto 0;
+    width: 90%;
+    max-width: var(--max-w);
+  }
+  .hero .overlay {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.45);
+    border-radius: var(--radius);
+  }
+  .hero-inner {
+    position: relative; z-index: 1;
+    color: var(--clr-white);
+    padding: 0 var(--space);
+  }
+  .hero-inner h1 {
+    margin: 0 0 0.5rem;
+    font-size: 3rem;
+  }
+  .hero-inner p {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  
+  /* —— CARD WITH SIDEBAR —— */
+  .about-card {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: var(--space);
+    margin: calc(var(--space)*2) 0;
+    background: var(--clr-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  
+  /* —— Sidebar “bubble” —— */
+  .sidebar-nav {
+    background: var(--clr-light);
+    padding: var(--space);
+  }
+  .sidebar-nav nav {
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar-nav a {
+    position: relative;
+    display: block;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.5rem;
+    background: var(--clr-white);
+    color: var(--clr-deep);
+    text-decoration: none;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    transition: background 0.2s, color 0.2s;
+  }
+  .sidebar-nav a:hover {
+    background: var(--clr-main);
+    color: var(--clr-white);
+  }
+  .sidebar-nav a.active {
+    background: var(--clr-main);
+    color: var(--clr-white);
+  }
+  .sidebar-nav a.active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    transform: translateY(-50%);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid var(--clr-main);
+  }
+  
+  /* —— About text —— */
+  .about-text {
+    padding: var(--space);
+  }
+  .about-text p {
+    margin-bottom: var(--space);
+  }
+  
+  /* —— PEOPLE GRID —— */
+  .people-section {
+    background: var(--clr-white);
+    padding: var(--space);
+  }
+  .people-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space);
+  }
+  @media (max-width: 768px) {
+    .people-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .person {
+    background: var(--clr-light);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    text-align: left;
+  }
+  .person img {
+    width: 100%;
+    aspect-ratio: 1/1;        /* enforce square ratio */
+    object-fit: cover;       /* crop to fill square */
+    display: block;
+  }
+  .person h3 {
+    margin: var(--space) var(--space) 0.5rem;
+    font-size: 1.2rem;
+    color: var(--clr-deep);
+  }
+  .person p {
+    margin: 0 var(--space) 0.75rem;
+    font-size: 0.95rem;
+    color: var(--clr-deep);
+  }
+  .person .role {
+    font-weight: bold;
+  }
+  .person .office,
+  .person .email a,
+  .person .phone {
+    font-weight: normal;
+    text-decoration: none;
+    color: var(--clr-deep);
+  }
+  .person .email a:hover {
+    text-decoration: underline;
+  }
+  
+  /* —— FOOTER —— */
+  .site-footer {
+    text-align: center;
+    padding: var(--space) 0;
+    background: rgba(224, 236, 248, 0.3);
+    box-shadow: var(--shadow);
+  }
+  .site-footer .small {
+    color: var(--clr-deep);
+    font-size: 0.875rem;
+  }
+  
+  /* —— RESPONSIVE —— */
+  @media (max-width: 768px) {
+    .about-card {
+      grid-template-columns: 1fr;
+    }
+  }
+  

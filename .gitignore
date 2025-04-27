@@ -1,0 +1,7 @@
+# Node, Python, etc. temp files
+*.log
+*.tmp
+# VS Code
+.vscode/
+# Mac
+.DS_Store
